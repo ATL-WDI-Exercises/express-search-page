@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include ../partials/head %>
+</head>
+
+<body class="container-fluid">
+  <header>
+    <% include ../partials/header %>
+  </header>
+
+  <main>
+    <div>
+      <h3>Movies</h3>
+      <% movies.forEach(function(movie) { %>
+        <h4>
+          <form method="POST" action="/movies/<%= movie._id %>?_method=DELETE">
+            <a href="/movies/<%= movie._id %>">
+              <%= movie.title %>
+            </a>
+            <button type="submit" class="btn btn-xs btn-danger">Delete</button>
+          </form>
+        </h4>
+      <% }) %>
+    </div>
+    <a href="/movies/new" class="btn btn-primary">New</a>
+  </main>
+
+  <footer>
+    <% include ../partials/footer %>
+  </footer>
+</body>
+</html>
