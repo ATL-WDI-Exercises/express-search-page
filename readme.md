@@ -14,6 +14,7 @@ To do this we will use:
 ---
 
 ![Screen Shot](screen-shot.png)
+Screenshot of our Movies Search Page
 
 ---
 
