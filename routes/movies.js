@@ -11,10 +11,23 @@ function makeError(res, message, status) {
 
 // INDEX
 router.get('/', function(req, res, next) {
-  // get all the movies and render the index view
-  Movie.find({}).sort('-createdAt')
+  let searchOptions = {};
+  // We only set searchOptions for truthy values (such as non-empty strings)
+  if (req.query.title) {
+    // searchOptions.title = req.query.title;
+    searchOptions.title = new RegExp(req.query.title, 'i');
+  }
+  if (req.query.genre) {
+    // searchOptions.genre = req.query.genre;
+    searchOptions.genre = new RegExp(req.query.genre, 'i');
+  }
+  Movie.find(searchOptions).sort('-createdAt')
   .then(function(movies) {
-    res.render('movies/index', { movies: movies } );
+    // Note that we call render with the original searchOptions
+    // so that the search inputs can be rendered with that data displayed.
+    res.render('movies/index', { movies: movies,
+                                 searchOptions: req.query
+                               } );
   }, function(err) {
     return next(err);
   });
