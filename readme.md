@@ -11,6 +11,8 @@ To do this we will use:
 * An _INDEX_ route that will render either all results (no search options) or filtered results (when search options are entered)
 * A clear button that will clear the form and show all results
 
+![Screen Shot](screen-shot.png)
+
 ## The Search Form
 
 Here we use a form with `method="GET"` and `action=/movies`. Note that HTML forms using HTTP GET will put the form data into the URL as _query parameters_.
