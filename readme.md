@@ -2,13 +2,13 @@
 
 We want to build a search page that can support the following:
 
-* Show filtered results using search options are entered by the user
+* Show filtered results using search options entered by the user
 * Show all results if no search options are entered
 
 To do this we will use:
 
-* An HTML form for the search options. Submitting the form will result in an HTTP GET request.
-* An _INDEX_ route that will render either all results or filtered results
+* An HTML form for the search options. Submitting the form will result in an HTTP _GET_ request.
+* An _INDEX_ route that will render either all results (no search options) or filtered results (when search options are entered)
 * A clear button that will clear the form and show all results
 
 ## The Search Form
